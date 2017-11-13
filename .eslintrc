@@ -87,7 +87,7 @@
     "no-void": 2, // disallow use of void operator (off by default)
     "no-warning-comments": [0, {"terms": ["todo", "fixme"], "location": "start"}], // disallow usage of configurable warning terms in comments": 2, // e.g. TODO or FIXME (off by default)
     "no-with": 2, // disallow use of the with statement
-    "radix": 2, // require use of the second argument for parseInt() (off by default)
+    "radix": 0, // require use of the second argument for parseInt() (off by default)
     "vars-on-top": 2, // requires to declare all vars on top of their containing scope (off by default)
     "wrap-iife": 2, // require immediate function invocation to be wrapped in parentheses (off by default)
     "yoda": 2, // require or disallow Yoda conditions
@@ -146,7 +146,7 @@
     "no-trailing-spaces": [1,{"skipBlankLines": true}], // disallow trailing whitespace at the end of lines
     "no-underscore-dangle": 0, // disallow dangling underscores in identifiers
     "one-var": [1, "never"], // allow just one var statement per function (off by default)
-    "operator-assignment": [1, "never"], // require assignment operator shorthand where possible or prohibit it entirely (off by default)
+    "operator-assignment": [0, "never"], // require assignment operator shorthand where possible or prohibit it entirely (off by default)
     "padded-blocks": [1, "never"], // enforce padding within blocks (off by default)
     "quote-props": [1, "as-needed"], // require quotes around object literal property names (off by default)
     "quotes": [1, "single"], // specify whether double or single quotes should be used
