@@ -1,5 +1,6 @@
 {
     "configurations": [
+        // Standard node program with console output
         {
             "type": "node",
             "request": "launch",
@@ -10,6 +11,18 @@
             ],
             "outputCapture": "std" // Add this line to send program console output to Debug Console
         },
+        // TypeScript node program with debugging
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ts-node debug",
+            "args": ["${workspaceFolder}/src/index.ts"],
+            "runtimeArgs": ["-r", "ts-node/register"],
+            "cwd": "${workspaceFolder}",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        // Attach Debugger to Docker node program
         {
             "type": "node",
             "request": "attach", // attach to process
