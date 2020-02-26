@@ -1,0 +1,39 @@
+{
+    "configurations": [
+        // Standard node program with console output
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/app.js",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "outputCapture": "std" // Add this line to send program console output to Debug Console
+        },
+        // TypeScript node program with debugging
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "ts-node debug",
+            "args": ["${workspaceFolder}/src/index.ts"],
+            "runtimeArgs": ["-r", "ts-node/register"],
+            "cwd": "${workspaceFolder}",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        // Attach Debugger to Docker node program
+        {
+            "type": "node",
+            "request": "attach", // attach to process
+            "name": "Docker: Debug Program",
+            "remoteRoot": "/opt/app", // root of docker application
+            "localRoot": "${workspaceFolder}", // matching local root
+            "restart": true, // restart debugger on lost of connect (nodemon can restart app in docker container & debugger will remain connected)
+            "address": "127.0.0.1", // address of docker port
+            "port": 9229, // open docker port 9229 (can assign xxxx:9229 to avoid conflict with other local debugging) 
+            "protocol": "inspector",
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
